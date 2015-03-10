@@ -1,0 +1,27 @@
+{
+  "name": "WebJarVer",
+  "version": "1.0.0",
+  "description": "Automates WebJars version handling for Spring Boot applications when using LiveReload and Grunt build stack.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/lsvidal/webjarver.git"
+  },
+  "keywords": [
+    "spring-boot",
+    "spring",
+    "maven",
+    "livereload",
+    "webjars",
+    "version"
+  ],
+  "author": "Leonardo Vidal <leonardo73vidal@gmail.com> (lsvidal.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lsvidal/webjarver/issues"
+  },
+  "homepage": "https://github.com/lsvidal/webjarver"
+}
