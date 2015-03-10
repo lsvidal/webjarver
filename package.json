@@ -1,5 +1,5 @@
 {
-  "name": "WebJarVer",
+  "name": "webjarver",
   "version": "1.0.0",
   "description": "Automates WebJars version handling for Spring Boot applications when using LiveReload and Grunt build stack.",
   "main": "main.js",
