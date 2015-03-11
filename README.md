@@ -72,38 +72,37 @@ npm install webjarver
 
 ## Usage
 
-In Gruntfile. js, the middleware property of livereload middleware function should load pom.xml and insert WebJarVer in the middleware array. __It must be inserted after Livereload's livereloadSnippet.__
+In Gruntfile. js, the middleware property of livereload middleware function should load pom.xml and insert WebJarVer in the middleware array.
 
 Here is an example:
 
 ```javascript
-		connect : {
+grunt.initConfig({
+	connect : {
+		livereload : {
 			options : {
-				port : 9000,
-				hostname : "0.0.0.0"
-			},
-			livereload : {
-				options : {
-					middleware : function(connect) {
+				middleware : function(connect) {
+					
+					var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
-						var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+					// Load webjarver library using RequireJS
+					var webjarver = require('webjarver');
 
-						// Require webjarver library
-						var webjarver = require('webjarver');
+					// Load pom.xml passing its full path.
+					webjarver.loadPom(__dirname + '/pom.xml');
 
-						// Load pom.xml passing its location
-						webjarver.loadPom(__dirname + '/pom.xml');
+					return [
+						proxySnippet,
+						require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
 
-						return [
-							proxySnippet,
-							require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
-
-							// Load WebJarVer middleware
-							webjarver.connectMiddleware
-						];
-					}
+						// Load WebJarVer middleware. __It must be inserted after Livereload's livereloadSnippet.__
+						webjarver.connectMiddleware
+					];
 				}
 			}
+		}
+	}
+});
 ```
 
 ## Roadmap
