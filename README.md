@@ -12,6 +12,7 @@ npm install webjarver
 
 ## Usage
 
+### Grunt file. js
 In the middleware property of livereload middleware function load pom.xml and insert WebJarVer in the middleware array. __It must be inserted after Livereload's livereloadSnippet.__
 
 Here is an example:
@@ -44,6 +45,29 @@ Here is an example:
 					}
 				}
 			}
+```
+
+### pom.xml
+This version demands WebJars' versions to be defined at properties with _.version_ suffix. 
+
+```
+<properties>
+  <angularjs.version>1.3.14</angular.version>
+</properties>
+
+<dependencies>
+  <dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>angularjs</artifactId>
+    <version>${angularjs.version}</version>
+  </dependency>
+</dependencies>
+```
+
+I use Maven resource filtering to insert the version numbers in html files during maven build. So a reference to the Angular file would be:
+
+```
+<script type="text/javascript" src="webjars/angularjs/${angularjs.version}/angular.min.js"></script>
 ```
 
 ## Roadmap
