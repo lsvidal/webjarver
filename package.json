@@ -1,6 +1,6 @@
 {
   "name": "webjarver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automates WebJars version handling for Spring Boot applications when using LiveReload and Grunt build stack.",
   "main": "main.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/lsvidal/webjarver/issues"
   },
-  "homepage": "https://github.com/lsvidal/webjarver"
+  "homepage": "https://github.com/lsvidal/webjarver",
+  "dependencies": {
+    "xml2js": "^0.4.4"
+  }
 }
